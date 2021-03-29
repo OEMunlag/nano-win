@@ -268,7 +268,7 @@ void read_keys_from(WINDOW *frame)
 	nextcodes = key_buffer;
 	waiting_codes = 0;
 
-	if (GetAsyncKeyState(VK_MENU) < 0)
+	if (GetAsyncKeyState(VK_LMENU) < 0)
 		key_buffer[waiting_codes++] = ESC_CODE;
 
 	key_buffer[waiting_codes++] = input;
@@ -308,7 +308,7 @@ void read_keys_from(WINDOW *frame)
 		if (waiting_codes == capacity)
 			reserve_space_for(2 * capacity);
 
-		if (GetAsyncKeyState(VK_MENU) < 0)
+		if (GetAsyncKeyState(VK_LMENU) < 0)
 			key_buffer[waiting_codes++] = ESC_CODE;
 
 		key_buffer[waiting_codes++] = input;
@@ -1196,7 +1196,7 @@ int parse_kbinput(WINDOW *frame)
 		modifiers |= 0x01;
 	if(GetAsyncKeyState(VK_CONTROL) < 0)
 		modifiers |= 0x04;
-	if(GetAsyncKeyState(VK_MENU) < 0)
+	if(GetAsyncKeyState(VK_LMENU) < 0)
 		modifiers |= 0x08;
 	if (!mute_modifiers) {
 #ifndef NANO_TINY
